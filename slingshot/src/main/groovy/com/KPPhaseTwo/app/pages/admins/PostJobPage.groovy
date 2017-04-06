@@ -22,7 +22,7 @@ final class PostJobPage extends WebPage {
 	
 	//Override
 	def submit = {browser, formKey, formData ->
-		println ("Submit method in CompanyRegistrationPage")
+		println ("Submit method in PostJobPage")
 		new PostJobForm().submit(browser, formData)
 	}
 	
@@ -79,7 +79,7 @@ final class PostJobPage extends WebPage {
 		private static final def ERROR_MESSAGE_FIELDS = [FORM_ERROR, FIELD_ERROR_1,FIELD_ERROR_2]
 		
 		//error message map (Key-Value Pair)
-		def static final CompanyRegistrationPageErrorMessageMap = [
+		def static final PostJobPageErrorMessageMap = [
 			jobtitle_req : 'Job Title is required.',
 			noofpositions_req :' No of positions is required.',
 			minage_req :'Min age is required.',
@@ -106,18 +106,18 @@ final class PostJobPage extends WebPage {
 
 		//To enter data
 		def static final populateFields = {browser, formData ->
-			println ("CompanyRegistrationForm.populateFields - data: " + formData)
+			println ("PostJobForm.populateFields - data: " + formData)
 			def outcome = WebForm.checkFormFieldsData(formData, FIELDS)
 			if(outcome.isSuccess()){
 				for(int i = 0; i <= FIELDS.size()-1; i++){
 					/*if(FIELDS[i].equals(CATEGORY) && formData[i]!= ""){
 						KPCommonPage.jobCategory = formData[i]
 					}*/
-					if(FIELDS[i].equals(CITY) && formData[i]!= ""){
+					if(FIELDS[i].equals(LOCATION) && formData[i]!= ""){
 						KPCommonPage.city = formData[i]
-						browser.scrollToElement(browser.getElement(Browser.XPATH, CITY))
+						browser.scrollToElement(browser.getElement(Browser.XPATH, LOCATION))
 						browser.delay(2000)
-						browser.populateField(CITY,formData[i])
+						browser.populateField(LOCATION,formData[i])
 						browser.delay(3000)
 						KPCommonPage.selectAutoComplete(browser, CITY_AUTOSELCT, formData[i].trim())
 					}else if(FIELDS[i].equals(INDUSTRY)){
@@ -146,8 +146,8 @@ final class PostJobPage extends WebPage {
 		 * @param data  array containing test data
 		 */
 		def final submit(browser, data) {
-			def actualValidationMsg = submitForm browser, FIELDS, REGISTER, data, ERROR_MESSAGE_FIELDS
-			def actualValidationMsgKeys = getActualErrorMessageKeys(actualValidationMsg, CompanyRegistrationPageErrorMessageMap)
+			def actualValidationMsg = submitForm browser, FIELDS, ADD_BUTTON, data, ERROR_MESSAGE_FIELDS
+			def actualValidationMsgKeys = getActualErrorMessageKeys(actualValidationMsg, PostJobPageErrorMessageMap)
 			def outcome = new SuccessOutcome();
 			outcome.setResultData(actualValidationMsgKeys)
 			return outcome
@@ -156,8 +156,8 @@ final class PostJobPage extends WebPage {
 		//override submitForm
 		def static submitForm = {browser, formFields, submitButton, data, errFields ->
 			browser.click submitButton // submit the form.
-			browser.scrollToElement2(ORGANIZATION_NAME)
-			browser.delay(500)
+			browser.scrollToElement2(JOB_TITLE)
+			browser.delay(1000)
 			browser.getValidationMessages errFields // get the validation messages from the current page.
 		}
 	}
