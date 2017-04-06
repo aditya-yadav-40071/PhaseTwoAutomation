@@ -97,13 +97,12 @@ final class PostJobPage extends WebPage {
 			eduqualification_req : 'Education Qualification is required',
 			skill_req : 'Skills is required',
 			jobdesc_req : 'Job Description is required.',
-			industry_req : 'Last date of application should be after Date of Job Posting',
-			//location_req : 'Last date of application cant be after Expiry Date of Job Posting',
-			jobtype_req : 'Date of Job Posting should be before Expiry of Job Posting',
-			org_req : 'Date of Job Posting should be before Last Date of Job Application',
-			org_name_invalid : 'Expiry of Job Posting should be after Date of Job Posting',
-			industry_req : '	Expiry of Job Posting should be after Last Date of job Application',
-			address_req : 'Address Line 1 is required.']
+			lastAfterPosting_date : 'Last date of application should be after Date of Job Posting',
+			//lastAfterExpiry_date : 'Last date of application can't be after Expiry Date of Job Posting',
+			postingBeforeExpiry_date : 'Date of Job Posting should be before Expiry of Job Posting',
+			jobpostingBeforeLast_date : 'Date of Job Posting should be before Last Date of Job Application',
+			expiryAfterPosting_date : 'Expiry of Job Posting should be after Date of Job Posting',
+			expiryAfterLast_date : 'Expiry of Job Posting should be after Last Date of job Application']
 
 		//To enter data
 		def static final populateFields = {browser, formData ->
