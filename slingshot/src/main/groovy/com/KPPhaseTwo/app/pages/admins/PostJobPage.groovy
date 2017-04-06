@@ -1,4 +1,4 @@
-package com.KPPhaseTwo.app.pages.user
+package com.KPPhaseTwo.app.pages.admins
 
 import com.KPPhaseTwo.model.FailureOutcome
 import com.KPPhaseTwo.model.SuccessOutcome
