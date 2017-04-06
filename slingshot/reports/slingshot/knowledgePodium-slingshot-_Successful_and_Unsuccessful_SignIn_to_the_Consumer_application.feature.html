@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<title>Cucumber-JVM Html Reports - Feature:  Successful and Unsuccessful SignIn to the Consumer application </title>
+	<link rel="stylesheet" href="blue/css/style.css" type="text/css" media="screen" />
+	<link rel="stylesheet" href="blue/css/skin/style.css" type="text/css" media="screen" />
+	<link rel="stylesheet" href="blue/css/960.css" type="text/css" media="screen" />
+	<link rel="stylesheet" href="blue/css/reset.css" type="text/css" media="screen" />
+	<link rel="stylesheet" href="blue/css/text.css" type="text/css" media="screen" />
+	<link rel="shortcut icon" href="blue/favicon.ico" />
+    <style>
+    .CodeMirror-scroll {
+      height: auto;
+      overflow-y: hidden;
+      overflow-x: auto;
+    }
+
+.feature-keyword{font-weight:bold;}
+.feature-description{padding-left:15px;font-style:italic;background-color:beige;}
+.feature-role{font-weight:bold;}
+.feature-action{font-weight:bold;}
+.feature-value{font-weight:bold;}
+.feature-tags{padding-top:10px;padding-left:15px;color:darkblue;}
+.scenario-keyword{font-weight:bold;padding-left:15px;}
+.scenario-scenario_name{padding-left:15px;}
+.step-keyword{font-weight:bold;padding-left:50px;}
+.step-error-message{background-color:#FFEEEE;padding-left:50px;border: 1px solid #D88A8A;}
+.step-duration{float:right;padding-right:15px;}
+.passed{background-color:#C5D88A;}
+.failed{background-color:#D88A8A;}
+.skipped{background-color:#2DEAEC;}
+.undefined{background-color: #ebcc81;}
+
+table.stats-table {
+color:black;
+border-width: 1px;
+border-spacing: 2px;
+border-style: outset;
+border-color: gray;
+border-collapse: collapse;
+background-color: white;
+}
+table.stats-table th {
+color:black;
+border-width: 1px;
+padding: 5px;
+border-style: inset;
+border-color: gray;
+background-color: #66CCEE;
+-moz-border-radius: ;
+}
+table.stats-table td {
+color:black;
+text-align: center;
+border-width: 1px;
+padding: 5px;
+border-style: inset;
+border-color: gray;
+background-color: white;
+-moz-border-radius: ;
+}
+
+table.data-table {
+    color: black;
+    border-width: 1px;
+    border-spacing: 2px;
+    border-style: outset;
+    border-color: #d6d6d6;
+    border-collapse: collapse;
+    background-color: beige;
+}
+table.data-table th {
+    color:black;
+    border-width: 1px;
+    padding: 5px;
+    border-style: inset;
+    border-color: #d6d6d6;
+    background-color: #66CCEE;
+}
+table.data-table td {
+    color:black;
+    text-align: center;
+    border-width: 1px;
+    padding: 5px;
+    border-style: inset;
+    border-color: #d6d6d6;
+    background-color: beige;
+}
+
+.data {
+   padding-left:50px;
+    padding-bottom: 10px;
+    padding-top: 10px;
+}
+
+.output-data {
+    padding-left:50px;
+    background-color: beige;
+}
+
+.doc-string {
+    width:auto;
+    display:inline-block;
+    margin: 10px auto 10px 70px;
+    padding: 10px;
+    background-color:rgba(255,255,255,0.35);
+    border-radius: 10px;
+    font-family: "Courier New", Courier, monospace;
+    font-size: 95%;
+}
+</style>
+
+</head>
+<body id="top">
+	<div id="fullwidth_header">
+		<div class="container_12">
+			<h1 class="grid_4 logo"><a href="feature-overview.html" class='ie6fix'>Cucumber</a></h1>
+			<div class="grid_6" id="nav">
+				<ul>
+                    					<li><a href="tag-overview.html">Tag Overview</a></li>
+					<li><a href="feature-overview.html">Feature Overview</a></li>
+				</ul>
+			</div>
+		</div>
+	</div>
+	<div id="fullwidth_gradient">
+		<div class="container_12">
+			<div class="grid_9 heading">
+				<h2 id="feature-title">Feature Result for Build: </h2>
+			</div>
+		</div>
+	</div>
+
+	<div class="container_12">
+		<div class="grid_12">
+
+            <div>
+                <table class="stats-table">
+                    <tr>
+    <th></th>
+    <th id="stats-header-scenarios" colspan="3">Scenarios</th>
+    <th id="stats-header-steps" colspan="5">Steps</th>
+    <th></th>
+    <th></th>
+</tr>
+<tr>
+    <th id="stats-header-feature">Feature</th>
+    <th id="stats-header-scenarios-total">Total</th>
+    <th id="stats-header-scenarios-passed">Passed</th>
+    <th id="stats-header-scenarios-failed">Failed</th>
+    <th id="stats-header-steps-total">Total</th>
+    <th id="stats-header-steps-passed" style="background-color:#C5D88A;">Passed</th>
+    <th id="stats-header-steps-failed" style="background-color:#D88A8A;">Failed</th>
+    <th id="stats-header-steps-skipped" style="background-color:#2DEAEC;">Skipped</th>
+    <th id="stats-header-steps-pending" style="background-color:#ebcc81;">Pending</th>
+    <th id="stats-header-duration">Duration</th>
+    <th id="stats-header-status">Status</th>
+</tr>
+
+                    <tr>
+                        <td><a id="stats- Successful and Unsuccessful SignIn to the Consumer application" href="knowledgePodium-slingshot-_Successful_and_Unsuccessful_SignIn_to_the_Consumer_application.feature.html"> Successful and Unsuccessful SignIn to the Consumer application</a></td>
+                        <td id="stats-number-scenarios- Successful and Unsuccessful SignIn to the Consumer application">8</td>
+                        <td id="stats-number-scenarios-passed- Successful and Unsuccessful SignIn to the Consumer application">7</td>
+                        <td id="stats-number-scenarios-failed- Successful and Unsuccessful SignIn to the Consumer application">1</td>
+                        <td id="stats-number-steps- Successful and Unsuccessful SignIn to the Consumer application">52</td>
+                        <td id="stats-number-steps-passed- Successful and Unsuccessful SignIn to the Consumer application">45</td>
+                        <td id="stats-number-steps-failed- Successful and Unsuccessful SignIn to the Consumer application">1</td>
+                        <td id="stats-number-steps-skipped- Successful and Unsuccessful SignIn to the Consumer application">6</td>
+                        <td id="stats-number-steps-pending- Successful and Unsuccessful SignIn to the Consumer application">0</td>
+                        <td id="stats-duration- Successful and Unsuccessful SignIn to the Consumer application">2 mins and 36 secs and 424 ms</td>
+                        <td id="stats-status- Successful and Unsuccessful SignIn to the Consumer application" style="background-color: #D88A8A;">failed</td>
+                    </tr>
+                                        <tr>
+                    	<td>&nbsp;</td>
+                    	<td colspan="10" style="text-align:left;">
+                    		                    			<div style="margin-bottom:5px;background-color: #D88A8A; "><div title="Clik to view the failed Step" style="cursor:pointer;" onclick="location.href='knowledgePodium-slingshot-_Successful_and_Unsuccessful_SignIn_to_the_Consumer_application.feature.html#33'"><div class="failed"><span class="scenario-keyword">Scenario: </span> <span class="scenario-name">6)  To verify successful logout to Consumer application with DATA SignIn_Success<div style='padding-left:30px;font-style:italic;'>Input Data: [[OILOILS100002, welcome], [wrong_msg]] </div></span></div><div class="failed"><span class="step-keyword"> </span><span class="step-name">3. Then I am ON signIn pop_up</span><div class="step-error-message"><pre>Expected: to be in page: signIn<br/>Actual: is in page: home<br/>Data Used: [OILOILS100002, welcome]</pre></div></div></div></div>
+                    		                    	</td>
+                    </tr>
+                                    </table>
+
+            </div>
+
+		<div style="color:black;">
+
+            <div class="feature-tags"></div>
+            <div class="failed"><div class="feature-line"><span class="feature-keyword">Feature:</span>  Successful and Unsuccessful SignIn to the Consumer application</div></div>
+            <div class="feature-description">Feature: Successful and Unsuccessful SignIn to the Consumer application<br/>		     <span class="feature-role">As an</span> user of the application<br/>		     <span class="feature-action">I want to</span> test SignIn feature<br/>		  </div>
+			                            <div class="feature-tags"></div>
+                <div class="passed"><span class="scenario-keyword">Scenario: </span> <span class="scenario-name">1)  To Verify unsuccessful SignIn to Consumer application with DATA SignIn_Failure<div style='padding-left:30px;font-style:italic;'>Input Data: [[Aditya, Aditya], [invalid_credentials]] </div></span></div>
+                	            	<a name="1"></a>
+	            	                  <div class="passed"><span class="step-keyword"> </span><span class="step-name">1. Given I am ON home page</span><span class="step-duration">3 secs and 350 ms</span></div>
+                    
+                                      <div class="output-data"></div>
+                	            	<a name="2"></a>
+	            	                  <div class="passed"><span class="step-keyword"> </span><span class="step-name">2. When I CLICK signIn button</span><span class="step-duration">8 secs and 524 ms</span></div>
+                    
+                                      <div class="output-data"></div>
+                	            	<a name="3"></a>
+	            	                  <div class="passed"><span class="step-keyword"> </span><span class="step-name">3. Then I am ON signIn pop_up</span><span class="step-duration">3 secs and 210 ms</span></div>
+                    
+                                      <div class="output-data"></div>
+                	            	<a name="4"></a>
+	            	                  <div class="passed"><span class="step-keyword"> </span><span class="step-name">4. And I ENTER invalid credentials with DATA SignIn_Failure</span><span class="step-duration">1 sec and 798 ms</span></div>
+                    
+                                      <div class="output-data"></div>
+                	            	<a name="5"></a>
+	            	                  <div class="passed"><span class="step-keyword"> </span><span class="step-name">5. When I SUBMIT the form, error messages are displayed</span><span class="step-duration">1 sec and 905 ms</span></div>
+                    
+                                      <div class="output-data"></div>
+                	            	<a name="6"></a>
+	            	                  <div class="passed"><span class="step-keyword"> </span><span class="step-name">6. And I am ON signIn pop_up</span><span class="step-duration">3 secs and 63 ms</span></div>
+                    
+                                      <div class="output-data"></div>
+                                            <div class="feature-tags"></div>
+                <div class="passed"><span class="scenario-keyword">Scenario: </span> <span class="scenario-name">2)  To Verify unsuccessful SignIn to Consumer application with DATA SignIn_Failure<div style='padding-left:30px;font-style:italic;'>Input Data: [[, ], [uname_req,pword_req]] </div></span></div>
+                	            	<a name="7"></a>
+	            	                  <div class="passed"><span class="step-keyword"> </span><span class="step-name">1. Given I am ON home page</span><span class="step-duration">3 secs and 156 ms</span></div>
+                    
+                                      <div class="output-data"></div>
+                	            	<a name="8"></a>
+	            	                  <div class="passed"><span class="step-keyword"> </span><span class="step-name">2. When I CLICK signIn button</span><span class="step-duration">8 secs and 311 ms</span></div>
+                    
+                                      <div class="output-data"></div>
+                	            	<a name="9"></a>
+	            	                  <div class="passed"><span class="step-keyword"> </span><span class="step-name">3. Then I am ON signIn pop_up</span><span class="step-duration">3 secs and 89 ms</span></div>
+                    
+                                      <div class="output-data"></div>
+                	            	<a name="10"></a>
+	            	                  <div class="passed"><span class="step-keyword"> </span><span class="step-name">4. And I ENTER invalid credentials with DATA SignIn_Failure</span><span class="step-duration">1 sec and 403 ms</span></div>
+                    
+                                      <div class="output-data"></div>
+                	            	<a name="11"></a>
+	            	                  <div class="passed"><span class="step-keyword"> </span><span class="step-name">5. When I SUBMIT the form, error messages are displayed</span><span class="step-duration">1 sec and 770 ms</span></div>
+                    
+                                      <div class="output-data"></div>
+                	            	<a name="12"></a>
+	            	                  <div class="passed"><span class="step-keyword"> </span><span class="step-name">6. And I am ON signIn pop_up</span><span class="step-duration">3 secs and 51 ms</span></div>
+                    
+                                      <div class="output-data"></div>
+                                            <div class="feature-tags"></div>
+                <div class="passed"><span class="scenario-keyword">Scenario: </span> <span class="scenario-name">3)  To Verify unsuccessful SignIn to Consumer application with DATA SignIn_Failure<div style='padding-left:30px;font-style:italic;'>Input Data: [[, admin], [uname_req]] </div></span></div>
+                	            	<a name="13"></a>
+	            	                  <div class="passed"><span class="step-keyword"> </span><span class="step-name">1. Given I am ON home page</span><span class="step-duration">3 secs and 130 ms</span></div>
+                    
+                                      <div class="output-data"></div>
+                	            	<a name="14"></a>
+	            	                  <div class="passed"><span class="step-keyword"> </span><span class="step-name">2. When I CLICK signIn button</span><span class="step-duration">8 secs and 153 ms</span></div>
+                    
+                                      <div class="output-data"></div>
+                	            	<a name="15"></a>
+	            	                  <div class="passed"><span class="step-keyword"> </span><span class="step-name">3. Then I am ON signIn pop_up</span><span class="step-duration">3 secs and 127 ms</span></div>
+                    
+                                      <div class="output-data"></div>
+                	            	<a name="16"></a>
+	            	                  <div class="passed"><span class="step-keyword"> </span><span class="step-name">4. And I ENTER invalid credentials with DATA SignIn_Failure</span><span class="step-duration">1 sec and 653 ms</span></div>
+                    
+                                      <div class="output-data"></div>
+                	            	<a name="17"></a>
+	            	                  <div class="passed"><span class="step-keyword"> </span><span class="step-name">5. When I SUBMIT the form, error messages are displayed</span><span class="step-duration">1 sec and 771 ms</span></div>
+                    
+                                      <div class="output-data"></div>
+                	            	<a name="18"></a>
+	            	                  <div class="passed"><span class="step-keyword"> </span><span class="step-name">6. And I am ON signIn pop_up</span><span class="step-duration">3 secs and 65 ms</span></div>
+                    
+                                      <div class="output-data"></div>
+                                            <div class="feature-tags"></div>
+                <div class="passed"><span class="scenario-keyword">Scenario: </span> <span class="scenario-name">4)  To Verify unsuccessful SignIn to Consumer application with DATA SignIn_Failure<div style='padding-left:30px;font-style:italic;'>Input Data: [[admin, ], [pword_req]] </div></span></div>
+                	            	<a name="19"></a>
+	            	                  <div class="passed"><span class="step-keyword"> </span><span class="step-name">1. Given I am ON home page</span><span class="step-duration">3 secs and 127 ms</span></div>
+                    
+                                      <div class="output-data"></div>
+                	            	<a name="20"></a>
+	            	                  <div class="passed"><span class="step-keyword"> </span><span class="step-name">2. When I CLICK signIn button</span><span class="step-duration">8 secs and 139 ms</span></div>
+                    
+                                      <div class="output-data"></div>
+                	            	<a name="21"></a>
+	            	                  <div class="passed"><span class="step-keyword"> </span><span class="step-name">3. Then I am ON signIn pop_up</span><span class="step-duration">3 secs and 84 ms</span></div>
+                    
+                                      <div class="output-data"></div>
+                	            	<a name="22"></a>
+	            	                  <div class="passed"><span class="step-keyword"> </span><span class="step-name">4. And I ENTER invalid credentials with DATA SignIn_Failure</span><span class="step-duration">1 sec and 487 ms</span></div>
+                    
+                                      <div class="output-data"></div>
+                	            	<a name="23"></a>
+	            	                  <div class="passed"><span class="step-keyword"> </span><span class="step-name">5. When I SUBMIT the form, error messages are displayed</span><span class="step-duration">1 sec and 810 ms</span></div>
+                    
+                                      <div class="output-data"></div>
+                	            	<a name="24"></a>
+	            	                  <div class="passed"><span class="step-keyword"> </span><span class="step-name">6. And I am ON signIn pop_up</span><span class="step-duration">3 secs and 54 ms</span></div>
+                    
+                                      <div class="output-data"></div>
+                                            <div class="feature-tags"></div>
+                <div class="passed"><span class="scenario-keyword">Scenario: </span> <span class="scenario-name">5) <b>successfulSignIn</b> -  To verify successful SignIn for Consumer application with DATA SignIn_Success<div style='padding-left:30px;font-style:italic;'>Input Data: [[OILOILS100002, welcome], [wrong_msg]] </div></span></div>
+                	            	<a name="25"></a>
+	            	                  <div class="passed"><span class="step-keyword"> </span><span class="step-name">1. Given I am ON home page</span><span class="step-duration">3 secs and 129 ms</span></div>
+                    
+                                      <div class="output-data"></div>
+                	            	<a name="26"></a>
+	            	                  <div class="passed"><span class="step-keyword"> </span><span class="step-name">2. When I CLICK signIn button</span><span class="step-duration">8 secs and 116 ms</span></div>
+                    
+                                      <div class="output-data"></div>
+                	            	<a name="27"></a>
+	            	                  <div class="passed"><span class="step-keyword"> </span><span class="step-name">3. Then I am ON signIn pop_up</span><span class="step-duration">3 secs and 53 ms</span></div>
+                    
+                                      <div class="output-data"></div>
+                	            	<a name="28"></a>
+	            	                  <div class="passed"><span class="step-keyword"> </span><span class="step-name">4. And  I ENTER valid credentials with DATA SignIn_Success</span><span class="step-duration">1 sec and 544 ms</span></div>
+                    
+                                      <div class="output-data"></div>
+                	            	<a name="29"></a>
+	            	                  <div class="passed"><span class="step-keyword"> </span><span class="step-name">5. When I SUBMIT the form</span><span class="step-duration">1 sec and 730 ms</span></div>
+                    
+                                      <div class="output-data"></div>
+                	            	<a name="30"></a>
+	            	                  <div class="passed"><span class="step-keyword"> </span><span class="step-name">6. Then I am ON dashboard page</span><span class="step-duration">15 ms</span></div>
+                    
+                                      <div class="output-data"></div>
+                                            <div class="feature-tags"></div>
+                <div class="failed"><span class="scenario-keyword">Scenario: </span> <span class="scenario-name">6)  To verify successful logout to Consumer application with DATA SignIn_Success<div style='padding-left:30px;font-style:italic;'>Input Data: [[OILOILS100002, welcome], [wrong_msg]] </div></span></div>
+                	            	<a name="31"></a>
+	            	                  <div class="passed"><span class="step-keyword"> </span><span class="step-name">1. Given I am ON home page</span><span class="step-duration">3 secs and 185 ms</span></div>
+                    
+                                      <div class="output-data"></div>
+                	            	<a name="32"></a>
+	            	                  <div class="passed"><span class="step-keyword"> </span><span class="step-name">2. When I CLICK signIn button</span><span class="step-duration">8 secs and 108 ms</span></div>
+                    
+                                      <div class="output-data"></div>
+                	            	<a name="33"></a>
+	            	                  <div class="failed"><span class="step-keyword"> </span><span class="step-name">3. Then I am ON signIn pop_up</span><span class="step-duration">3 secs and 61 ms</span><div class="step-error-message"><pre>Expected: to be in page: signIn<br/>Actual: is in page: home<br/>Data Used: [OILOILS100002, welcome]</pre></div></div>
+                    
+                                      <div class="output-data"></div>
+                	            	<a name="34"></a>
+	            	                  <div class="skipped"><span class="step-keyword"> </span><span class="step-name">4. And I ENTER valid credentials with DATA SignIn_Success</span><span class="step-duration">0 ms</span></div>
+                    
+                                      <div class="output-data"></div>
+                	            	<a name="35"></a>
+	            	                  <div class="skipped"><span class="step-keyword"> </span><span class="step-name">5. When I SUBMIT the form</span><span class="step-duration">0 ms</span></div>
+                    
+                                      <div class="output-data"></div>
+                	            	<a name="36"></a>
+	            	                  <div class="skipped"><span class="step-keyword"> </span><span class="step-name">6. Then I am ON dashboard page</span><span class="step-duration">0 ms</span></div>
+                    
+                                      <div class="output-data"></div>
+                	            	<a name="37"></a>
+	            	                  <div class="skipped"><span class="step-keyword"> </span><span class="step-name">7. When I CLICK profileImageIcon</span><span class="step-duration">0 ms</span></div>
+                    
+                                      <div class="output-data"></div>
+                	            	<a name="38"></a>
+	            	                  <div class="skipped"><span class="step-keyword"> </span><span class="step-name">8. And I CLICK logout button</span><span class="step-duration">0 ms</span></div>
+                    
+                                      <div class="output-data"></div>
+                	            	<a name="39"></a>
+	            	                  <div class="skipped"><span class="step-keyword"> </span><span class="step-name">9. Then I am ON home page</span><span class="step-duration">0 ms</span></div>
+                    
+                                      <div class="output-data"></div>
+                                            <div class="feature-tags"></div>
+                <div class="passed"><span class="scenario-keyword">Scenario: </span> <span class="scenario-name">7)  To verify closing the Sign In pop-up in Conumer application</span></div>
+                	            	<a name="40"></a>
+	            	                  <div class="passed"><span class="step-keyword"> </span><span class="step-name">1. Given I am ON home page</span><span class="step-duration">3 secs and 97 ms</span></div>
+                    
+                                      <div class="output-data"></div>
+                	            	<a name="41"></a>
+	            	                  <div class="passed"><span class="step-keyword"> </span><span class="step-name">2. When I CLICK signIn button</span><span class="step-duration">8 secs and 147 ms</span></div>
+                    
+                                      <div class="output-data"></div>
+                	            	<a name="42"></a>
+	            	                  <div class="passed"><span class="step-keyword"> </span><span class="step-name">3. Then I am ON signIn pop_up</span><span class="step-duration">3 secs and 74 ms</span></div>
+                    
+                                      <div class="output-data"></div>
+                	            	<a name="43"></a>
+	            	                  <div class="passed"><span class="step-keyword"> </span><span class="step-name">4. When I CLICK closeButton button</span><span class="step-duration">4 secs and 137 ms</span></div>
+                    
+                                      <div class="output-data"></div>
+                	            	<a name="44"></a>
+	            	                  <div class="passed"><span class="step-keyword"> </span><span class="step-name">5. Then I am ON home page</span><span class="step-duration">3 secs and 168 ms</span></div>
+                    
+                                      <div class="output-data"></div>
+                                            <div class="feature-tags"></div>
+                <div class="passed"><span class="scenario-keyword">Scenario: </span> <span class="scenario-name">8)  To Verify the username of the user who logs in to the Site Consumer application with DATA SignIn_Success<div style='padding-left:30px;font-style:italic;'>Input Data: [[OILOILS100002, welcome], [wrong_msg]] </div></span></div>
+                	            	<a name="45"></a>
+	            	                  <div class="passed"><span class="step-keyword"> </span><span class="step-name">1. Given I am ON home page</span><span class="step-duration">3 secs and 92 ms</span></div>
+                    
+                                      <div class="output-data"></div>
+                	            	<a name="46"></a>
+	            	                  <div class="passed"><span class="step-keyword"> </span><span class="step-name">2. When I CLICK signIn button</span><span class="step-duration">8 secs and 115 ms</span></div>
+                    
+                                      <div class="output-data"></div>
+                	            	<a name="47"></a>
+	            	                  <div class="passed"><span class="step-keyword"> </span><span class="step-name">3. Then I am ON signIn pop_up</span><span class="step-duration">3 secs and 51 ms</span></div>
+                    
+                                      <div class="output-data"></div>
+                	            	<a name="48"></a>
+	            	                  <div class="passed"><span class="step-keyword"> </span><span class="step-name">4. And I ENTER valid credentials with DATA SignIn_Success</span><span class="step-duration">1 sec and 515 ms</span></div>
+                    
+                                      <div class="output-data"></div>
+                	            	<a name="49"></a>
+	            	                  <div class="passed"><span class="step-keyword"> </span><span class="step-name">5. When I SUBMIT the form</span><span class="step-duration">1 sec and 719 ms</span></div>
+                    
+                                      <div class="output-data"></div>
+                	            	<a name="50"></a>
+	            	                  <div class="passed"><span class="step-keyword"> </span><span class="step-name">6. Then I am ON dashboard page</span><span class="step-duration">6 ms</span></div>
+                    
+                                      <div class="output-data"></div>
+                	            	<a name="51"></a>
+	            	                  <div class="passed"><span class="step-keyword"> </span><span class="step-name">7. And I VERIFY consumerName with DATA ConsumerName_Success</span><span class="step-duration">1 sec and 121 ms</span></div>
+                    
+                                      <div class="output-data"></div>
+                	            	<a name="52"></a>
+	            	                  <div class="passed"><span class="step-keyword"> </span><span class="step-name">8. Then I am ON dashboard page</span><span class="step-duration">11 ms</span></div>
+                    
+                                      <div class="output-data"></div>
+                            
+	</div>
+	</div>
+	
+	
+
+	<div class="container_12">
+		<div class="grid_12 hr"></div>
+		<div class="grid_12 footer">
+            <p style="text-align:center;">Cucumber-JVM Jenkins Report Plugin - version: cucumber-reporting-0.0.24 - 28-12-2016 12:20:58</p>
+		</div>
+	</div>
+	<div class="clear"></div>
+	
+	
+</body>
