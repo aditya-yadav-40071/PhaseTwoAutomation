@@ -57,6 +57,8 @@ final class PostJobPage extends WebPage {
 		
 		private static final def JOB_EXPIRY_DATE = ".//*[@id='jobExpiryDate']"
 		
+		private static final def JOB_DATES= "//p[@class='input-group mb_0']/input"
+		
 		private static final def EDU_QUALIFICATION = ".//input[@name='multipleSelectEducation']"
 		
 		private static final def SKILLS = ".//input[@name='multipleSelectSkills']"
@@ -70,7 +72,7 @@ final class PostJobPage extends WebPage {
 		private static final def FIELDS = [JOB_TITLE, NO_OF_POSITIONS, MIN_AGE, MAX_AGE, MIN_EXPERIENCE,MAX_EXPERIENCE,MIN_SALARY,MAX_SALARY, INDUSTRY, LOCATION, JOB_TYPE, JOB_LAST_DATE, JOB_POSTING_DATE, JOB_EXPIRY_DATE, EDU_QUALIFICATION, SKILLS, PRE_CERTIFICATE, JOB_DESCRIPTION]
 		
 		// the error fields.
-		private static final def FORM_ERROR = ""
+		private static final def FORM_ERROR = ".//span[@class='ng-binding ng-scope']"
 		
 		private static final def FIELD_ERROR_1 = ".//span[@class='error_message']"
 		
@@ -80,32 +82,36 @@ final class PostJobPage extends WebPage {
 		
 		//error message map (Key-Value Pair)
 		def static final PostJobPageErrorMessageMap = [
-			jobtitle_req : 'Job Title is required.',
-			noofpositions_req :' No of positions is required.',
-			minage_req :'Min age is required.',
-			maxage_req : 'Max age is required.',
-			minexperience_req :'Min experience is required.',
-			maxexperience_req : 'Max experience is required.',
-			minsalary_req : 'Min salary is required.',
-			maxsalary_req : 'Max salary is required.',
-			industry_req : 'Industry is required',
-			location_req : 'Location is required.',
-			jobtype_req : 'Job Type is required',
-			joblastdate_req : 'Job last date is required.',
-			jobpostdate_req :'Date of Job posting is required.',
-			jobexpirydate_req :'Expiry date of Job posting required.',
-			eduqualification_req : 'Education Qualification is required',
-			skill_req : 'Skills is required',
-			jobdesc_req : 'Job Description is required.',
-			lastAfterPosting_date : 'Last date of application should be after Date of Job Posting',
-			//lastAfterExpiry_date : 'Last date of application can't be after Expiry Date of Job Posting',
-			postingBeforeExpiry_date : 'Date of Job Posting should be before Expiry of Job Posting',
-			jobpostingBeforeLast_date : 'Date of Job Posting should be before Last Date of Job Application',
-			expiryAfterPosting_date : 'Expiry of Job Posting should be after Date of Job Posting',
-			expiryAfterLast_date : 'Expiry of Job Posting should be after Last Date of job Application']
+			jobtitle_req              :  'Job Title is required.',
+			noofpositions_req         :  'No of positions is required.',
+			minage_req                :  'Min age is required.',
+			maxage_req                :  'Max age is required.',
+			minexperience_req         :  'Min experience is required.',
+			maxexperience_req         :  'Max experience is required.',
+			minsalary_req             :  'Min salary is required.',
+			maxsalary_req             :  'Max salary is required.',
+			industry_req              :  'Industry is required',
+			location_req              :  'Location is required.',
+			jobtype_req               :  'Job Type is required',
+			joblastdate_req           :  'Job last date is required.',
+			jobpostdate_req           :  'Date of Job posting is required.',
+			jobexpirydate_req         :  'Expiry date of Job posting required.',
+			eduqualification_req      :  'Education Qualification is required', 
+			skill_req                 :  'Skills is required',
+			jobdesc_req               :  'Job Description is required.',
+			lastAfterPosting_date     :  'Last date of application should be after Date of Job Posting',
+			lastAfterExpiry_date      :  'Last date of application can'+"'"+'t be after Expiry Date of Job Posting',
+			postingBeforeExpiry_date  :  'Date of Job Posting should be before Expiry of Job Posting',
+			jobpostingBeforeLast_date :  'Date of Job Posting should be before Last Date of Job Application',
+			expiryAfterPosting_date   :  'Expiry of Job Posting should be after Date of Job Posting',
+			expiryAfterLast_date      :  'Expiry of Job Posting should be after Last Date of job Application',
+			minAgeGreaterMax          :  'Min age can'+"'"+'t be greater than max age',
+			minExpGreaterMax          :  'Min experience can'+"'"+'t be greater than max experience',
+			minSalGreaterMax          :  'Min salary can'+"'"+'t be greater than max salary']
 
 		//To enter data
-		def static final populateFields = {browser, formData ->
+		def static final populateFields = { browser, formData ->
+			
 			println ("PostJobForm.populateFields - data: " + formData)
 			def outcome = WebForm.checkFormFieldsData(formData, FIELDS)
 			if(outcome.isSuccess()){
@@ -146,6 +152,7 @@ final class PostJobPage extends WebPage {
 		 * @param data  array containing test data
 		 */
 		def final submit(browser, data) {
+			
 			def actualValidationMsg = submitForm browser, FIELDS, ADD_BUTTON, data, ERROR_MESSAGE_FIELDS
 			def actualValidationMsgKeys = getActualErrorMessageKeys(actualValidationMsg, PostJobPageErrorMessageMap)
 			def outcome = new SuccessOutcome();
@@ -155,6 +162,7 @@ final class PostJobPage extends WebPage {
 		
 		//override submitForm
 		def static submitForm = {browser, formFields, submitButton, data, errFields ->
+			
 			browser.click submitButton // submit the form.
 			browser.scrollToElement2(JOB_TITLE)
 			browser.delay(1000)

@@ -12,7 +12,7 @@ Scenario: To Verify page-title of 'Post Job' page
    Then I am ON postJob page
    
 @Group(12)
-Scenario: To verfy the navigation from 'Post Job' page to dashboard page using breadcrumb
+Scenario: To verify the navigation from 'Post Job' page to dashboard page using breadcrumb
    Given I am ON dashboard page 
    Then I CLICK leftMenuButton
    When I CLICK postJob link
@@ -21,7 +21,7 @@ Scenario: To verfy the navigation from 'Post Job' page to dashboard page using b
    Then I am ON dashboard page
    
 @Group(13)
-Scenario: To verfy the navigation from 'Post Job' page to view all Job Postings page
+Scenario: To verify the navigation from 'Post Job' page to view all Job Postings page
    Given I am ON dashboard page 
    Then I CLICK leftMenuButton
    When I CLICK postJob link
@@ -30,7 +30,7 @@ Scenario: To verfy the navigation from 'Post Job' page to view all Job Postings 
    Then I am ON jobPostList page 
    
 @Group(14)
-Scenario: To verfy the navigation from 'Post Job' page to view all Job Postings page
+Scenario: To verify the navigation from 'Post Job' page to view all Job Postings page
    Given I am ON dashboard page 
    Then I CLICK leftMenuButton
    When I CLICK postJob link
@@ -40,3 +40,11 @@ Scenario: To verfy the navigation from 'Post Job' page to view all Job Postings 
    When I CLICK postJobBreadcrumb
    Then I am ON postJob page
    
+@Group(15)
+Scenario: To verify all the failure scenarios for 'Post Job' page with DATA PostJob_Failure
+   Given I am ON dashboard page 
+   Then I CLICK leftMenuButton
+   When I CLICK postJob link
+   Then I am ON postJob page
+   When I ENTER invalid details with DATA PostJob_Failure error messages are displayed
+   Then I am ON postJob page

@@ -47,7 +47,7 @@ class PageDefs {
 		
 		//Post Job
 		pageDefEntries.add( new PageDefEntry("postJob","Job Post",null))
-		pageDefEntries.add( new PageDefEntry("jobPostList","Job Postings List",null))
+		pageDefEntries.add( new PageDefEntry("jobPostList","Job Postings List","com.KPPhaseTwo.app.pages.admins.PostJobPage"))
 	}
 	
 	//Get Key for the current page
