@@ -82,7 +82,6 @@ abstract class WebForm {
 	def static final getActualErrorMessageKeys(def actualMessages, def pageErrorMessageMap){
 
 		def actualValidationMsgKeys = []
-println "1"
 		for(validationMessage in actualMessages) {
 			pageErrorMessageMap.each { key, value ->
 				if(value == validationMessage) {

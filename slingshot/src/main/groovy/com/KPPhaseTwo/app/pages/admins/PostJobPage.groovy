@@ -100,14 +100,14 @@ final class PostJobPage extends WebPage {
 			skill_req                 :  'Skills is required',
 			jobdesc_req               :  'Job Description is required.',
 			lastAfterPosting_date     :  'Last date of application should be after Date of Job Posting',
-			lastAfterExpiry_date      :  'Last date of application can'+"'"+'t be after Expiry Date of Job Posting',
+			lastAfterExpiry_date      :  'Last date of application can\'t be after Expiry Date of Job Posting',
 			postingBeforeExpiry_date  :  'Date of Job Posting should be before Expiry of Job Posting',
 			jobpostingBeforeLast_date :  'Date of Job Posting should be before Last Date of Job Application',
 			expiryAfterPosting_date   :  'Expiry of Job Posting should be after Date of Job Posting',
 			expiryAfterLast_date      :  'Expiry of Job Posting should be after Last Date of job Application',
-			minAgeGreaterMax          :  'Min age can'+"'"+'t be greater than max age',
-			minExpGreaterMax          :  'Min experience can'+"'"+'t be greater than max experience',
-			minSalGreaterMax          :  'Min salary can'+"'"+'t be greater than max salary']
+			minAgeGreaterMax          :  'Min age can\'t be greater than max age',
+			minExpGreaterMax          :  'Min experience can\'t be greater than max experience',
+			minSalGreaterMax          :  'Min salary can\'t be greater than max salary']  //can'+"'"+'t
 
 		//To enter data
 		def static final populateFields = { browser, formData ->

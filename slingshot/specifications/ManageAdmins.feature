@@ -4,13 +4,12 @@ Feature: To test all the feature of manage admins page
 
   Background: Login:loginSuccess
 
-@Group(1)
   Scenario: To Verify the page-title of 'Manage Admins' page
     Given I am ON dashboard page
     And I CLICK leftMenuButton
     And I CLICK manageAdmins link
     Then I am ON manageAdmins page
-@Group(2)
+
   Scenario: To verify 'Manage Admin' link from bread crumb menu
     Given I am ON dashboard page
     And I CLICK leftMenuButton
@@ -20,7 +19,7 @@ Feature: To test all the feature of manage admins page
     Then I am ON addAdmin page
     And I CLICK manageAdminBreadCrumb link
     Then I am ON manageAdmins page
-@Group(3)
+    
   Scenario: Verify the error message while adding another admin without entering the required details for the currnt admin form with DATA AnotherAdminErrorMsg_Success
     Given I am ON dashboard page
     And I CLICK leftMenuButton
@@ -33,8 +32,8 @@ Feature: To test all the feature of manage admins page
     Then I CLICK saveToAddAnotherAdmin button
     And I VERIFY addAnotherAdminErrorMessage with DATA AnotherAdminErrorMsg_Success
     Then I am ON addAdmin page
-@Group(4)
-    Scenario: To create an Admin and click on the newly created Admin to view and verify the Admin Profile with DATA AddAdmin_Success
+
+  Scenario: To create an Admin and click on the newly created Admin to view and verify the Admin Profile with DATA AddAdmin_Success
     Given I am ON dashboard page
     And I CLICK leftMenuButton link
     And I CLICK manageAdmins link
@@ -51,7 +50,7 @@ Feature: To test all the feature of manage admins page
     Then I am ON adminViewProfile page
     And I VERIFY adminDetails on view profile page
     Then I am ON adminViewProfile page
-@Group(5)
+    
   Scenario: To verify 'Manage Admin' link from bread crumb menu from View Profile page with DATA AddAdmin_Success
     Given I am ON dashboard page
     When I CLICK leftMenuButton link
@@ -70,7 +69,6 @@ Feature: To test all the feature of manage admins page
     Then I CLICK manageAdminBreadCrumb link
     Then I am ON manageAdmins page
     
-@Group(6)
   Scenario: To Verify the created Triner Admin with DATA AddTrainerAdmin_Success
     Given I am ON dashboard page
     When I CLICK leftMenuButton link
@@ -91,9 +89,9 @@ Feature: To test all the feature of manage admins page
     And I ENTER valid password details with DATA ChangePassword_Success
     Then I SUBMIT the form
     And I am ON dashboard page
-    Then I VERIFY ifLoggedInAsTrainer
-    And I am ON dashboard page
-
+    When I VERIFY loggedInAsTrainer
+    Then user is logged in as Trainer Admin
+    
   Scenario: To Verify the created Job Admin with DATA AddJobAdmin_Success
     Given I am ON dashboard page
     When I CLICK leftMenuButton link
@@ -114,8 +112,8 @@ Feature: To test all the feature of manage admins page
     And I ENTER valid password details with DATA ChangePassword_Success
     Then I SUBMIT the form
     And I am ON dashboard page
-    Then I VERIFY ifLoggedInAsJobAdmin
-    And I am ON dashboard page
+    When I VERIFY loggedInAsJobAdmin
+    Then user is logged in as Job Admin
 
   Scenario: To Verify the created Sub Admin with DATA AddSubAdmin_Success
     Given I am ON dashboard page
@@ -137,11 +135,10 @@ Feature: To test all the feature of manage admins page
     And I ENTER valid password details with DATA ChangePassword_Success
     Then I SUBMIT the form
     And I am ON dashboard page
-    Then I VERIFY ifLoggedInAsSubAdmin
-    And I am ON dashboard page
+    When I VERIFY loggedInAsSubAdmin
+    Then user is logged in as Sub Admin
 
-@Group(8)
-  Scenario: To verify the change privilages page for a random Admin with DATA AddSubAdmin_Success
+  Scenario: To verify the change privilages page for an Admin with DATA AddSubAdmin_Success
     Given I am ON dashboard page
     When I CLICK leftMenuButton link
     And I CLICK manageAdmins link
@@ -152,7 +149,7 @@ Feature: To test all the feature of manage admins page
     When I SUBMIT the form
     Then I am ON manageAdmins page
     And I CLICK lastOfItemsPerPage link which displays all the admins created
-    Then I PERFORM clickOnChangePrivilages link of a created Admin with DATA ChangePrivilageEmail_Success
+    Then I PERFORM clickOnChangePrivilages link of a created Admin
     Then I am ON changePrivilages page
 
   Scenario: To verify the change privilages for a newly created Admin with DATA AddTrainerAdmin_Success
@@ -173,21 +170,19 @@ Feature: To test all the feature of manage admins page
     Then I SUBMIT the form
     Then I am ON manageAdmins page
 
-@Group(7)
-  Scenario: To change the privilages of the Trainer Admin and verify that the privilages are changed to Job Admin with DATA AddTrainerAdmin_Success
+  Scenario: To change the privilages of an Admin and verify that the privilages are changed changed accrodingly with DATA AddAdmins_Success
     Given I am ON dashboard page
     When I CLICK leftMenuButton link
     And I CLICK manageAdmins link
     Then I am ON manageAdmins page
     When I CLICK addAdmin button
     Then I am ON addAdmin page
-    And I ENTER all the required fields with DATA AddTrainerAdmin_Success
+    And I ENTER all the required fields with DATA AddAdmins_Success
     When I SUBMIT the form
     Then I am ON manageAdmins page
     And I CLICK lastOfItemsPerPage link which displays all the admins created in a single page
     And I VERIFY addedAdminDisplayed
     Then I am ON manageAdmins page
-    And I CLICK lastOfItemsPerPage link which displays all the admins created in a single page
     When I PERFORM clickOnNewAdminChangePrivilage link
     Then I am ON changePrivilages page
     Then I ENTER valid details with DATA ChangePrivilages_Success
@@ -199,71 +194,11 @@ Feature: To test all the feature of manage admins page
     Then I am ON login page
     When I PERFORM loginAsAnAdmin
     Then I am ON changePassword page
-    And I ENTER valid password details with DATA ChangePassword_Success
+    And I ENTER valid password details with DATA ChangePassPrivilage_Success
     Then I SUBMIT the form
     And I am ON dashboard page
-    When I PERFORM ifLoggedInAsJobAdmin
-    Then I am ON dashboard page
-
- Scenario: To change the privilages of the Job Admin and verify that the privilages are changed to Trainer Admin  with DATA AddJobAdmin_Success
-    Given I am ON dashboard page
-    When I CLICK leftMenuButton link
-    And I CLICK manageAdmins link
-    Then I am ON manageAdmins page
-    When I CLICK addAdmin button
-    Then I am ON addAdmin page
-    And I ENTER all the required fields with DATA AddJobAdmin_Success
-    When I SUBMIT the form
-    Then I am ON manageAdmins page
-    And I CLICK lastOfItemsPerPage link which displays all the admins created in a single page
-    And I VERIFY addedAdminDisplayed
-    Then I am ON manageAdmins page
-    When I PERFORM clickOnNewAdminChangePrivilage link
-    Then I am ON changePrivilages page
-    Then I ENTER valid details with DATA ChangePrivilage2Trainer_Success
-    Then I SUBMIT the form
-    Then I am ON manageAdmins page
-    When I PERFORM logOut action
-    Then I am ON home page
-    When I CLICK login link
-    Then I am ON login page
-    When I PERFORM loginAsAnAdmin
-    Then I am ON changePassword page
-    And I ENTER valid password details with DATA ChangePassword_Success
-    Then I SUBMIT the form
-    And I am ON dashboard page
-    When I PERFORM ifLoggedInAsTrainer
-    Then I am ON dashboard page
-@Group(44)
-Scenario: To change the privilages of the Job Admin  and verify that the privilages are changed to Sub Admin with DATA AddJobAdmin_Success
-    Given I am ON dashboard page
-    When I CLICK leftMenuButton link
-    And I CLICK manageAdmins link
-    Then I am ON manageAdmins page
-    When I CLICK addAdmin button
-    Then I am ON addAdmin page
-    And I ENTER all the required fields with DATA AddJobAdmin_Success
-    When I SUBMIT the form
-    Then I am ON manageAdmins page
-    And I CLICK lastOfItemsPerPage link which displays all the admins created in a single page
-    And I VERIFY addedAdminDisplayed
-    Then I am ON manageAdmins page
-    When I PERFORM clickOnNewAdminChangePrivilage link
-    Then I am ON changePrivilages page
-    Then I ENTER valid details with DATA ChangePrivlageSubAdmin_Success
-    Then I SUBMIT the form
-    Then I am ON manageAdmins page
-    When I PERFORM logOut action
-    Then I am ON home page
-    When I CLICK login link
-    Then I am ON login page
-    When I PERFORM loginAsAnAdmin
-    Then I am ON changePassword page
-    And I ENTER valid password details with DATA ChangePassword_Success
-    Then I SUBMIT the form
-    And I am ON dashboard page
-    When I PERFORM ifLoggedInAsSubAdmin
-    Then I am ON dashboard page
+    When I PERFORM adminPrivilageChanged
+    Then the privilege for admin are changed accrodingly
 
   @Group(ManageAdmins)
   Scenario: To Verify the success scenario of adding an admin in 'Manage Admins' page with DATA AddAdmin_Success
@@ -317,7 +252,6 @@ Scenario: To change the privilages of the Job Admin  and verify that the privila
     Then I am ON manageAdmins page
     And added admin has been removed from the admins list
 
-@Group(20)
   Scenario: Remove an admin from 'Manage Admins' page and Verify that user can not login to the application with DATA AddAdmin_Success
     Given I am ON dashboard page
     And I CLICK leftMenuButton

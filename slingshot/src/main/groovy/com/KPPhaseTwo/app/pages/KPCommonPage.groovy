@@ -5,7 +5,7 @@ import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.TimeZone;
-
+import java.time.*
 import com.KPPhaseTwo.model.FailureOutcome
 import com.KPPhaseTwo.model.SuccessOutcome
 
@@ -20,6 +20,8 @@ class KPCommonPage {
 	private static def RADIOID = ".//*[@name='radioName'][@value='radioValue']"
 
 	private static def RADIO_BTN_XPATH1 = ".//input[@type='radio']"
+	
+	private static def SELECT_MONTH = ".//select[@class='ui-datepicker-month']"
 
 	//Registration
 	private static def city,industry
@@ -32,7 +34,9 @@ class KPCommonPage {
 
 	private static def adminPassword
 
-	//private static def adminEmailId
+	private static def Privilage = []
+	
+	//private static def Job
 	
 	private static def adminEmailId = []
 
@@ -117,5 +121,21 @@ class KPCommonPage {
 		long number = (long) Math.floor(Math.random() * 9_000_000_000L) + 1_000_000_000L;
 		return number;
 	}
+	
+	//To Pick the date
+	/*public static def datePicker(def browser,def cal, def formDate){
+		println "Inside KPCommon Page date picker"
+		browser.getElement(Browser.XPATH,cal).click()
+		browser.delay(1000)
+		if(formDate.contains("/")){
+			def splittedDate= formDate.split ("/")
+			def monthValue = splittedDate[0]
+			def dayValue = splittedDate[1]
+			def yearValue = splittedDate[2]
+			println "monthValue="+monthValue+"dayValue"+dayValue++"year="+yearValue
+			
+			
+		}
+	}*/
 
 }

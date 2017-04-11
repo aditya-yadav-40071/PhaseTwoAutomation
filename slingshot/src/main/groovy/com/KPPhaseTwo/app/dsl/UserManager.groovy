@@ -4,7 +4,7 @@ import com.KPPhaseTwo.app.pages.user.LoginPage
 import com.KPPhaseTwo.app.pages.admins.ManageAdminsPage
 import com.KPPhaseTwo.app.pages.user.DashboardPage
 import com.KPPhaseTwo.app.pages.admins.AddAdminPage
-
+import com.KPPhaseTwo.app.pages.admins.ChangePrivilagesPage
 /**
  * Created by Sandhya on 27/9/2015
  */
@@ -52,16 +52,16 @@ class UserManager {
 		AddAdminPage.addAnotherAdminErrorMessage browser, formData
 	}
 
-	def ifLoggedInAsTrainer = { browser, formData ->
-		DashboardPage.ifLoggedInAsTrainer browser, formData
+	def loggedInAsTrainer = { browser, formData ->
+		DashboardPage.loggedInAsTrainer browser, formData
 	}
 
-	def ifLoggedInAsJobAdmin = { browser, formData ->
-		DashboardPage.ifLoggedInAsJobAdmin browser, formData
+	def loggedInAsJobAdmin = { browser, formData ->
+		DashboardPage.loggedInAsJobAdmin browser, formData
 	}
 
-	def ifLoggedInAsSubAdmin = { browser, formData ->
-		DashboardPage.ifLoggedInAsSubAdmin browser, formData
+	def loggedInAsSubAdmin = { browser, formData ->
+		DashboardPage.loggedInAsSubAdmin browser, formData
 	}
 	
 	def clickOnChangePrivilages = { browser, formData ->
@@ -70,5 +70,9 @@ class UserManager {
 	
 	def clickOnNewAdminChangePrivilage = { browser, formData ->
 		ManageAdminsPage.clickOnNewAdminChangePrivilage browser, formData
+	}
+	
+	def adminPrivilageChanged = { browser, formData ->
+		ChangePrivilagePage.adminPrivilageChanged browser, formData
 	}
 }

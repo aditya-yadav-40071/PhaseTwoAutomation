@@ -206,7 +206,7 @@ final class ManageAdminsPage extends WebPage {
 			def adminEmail= browser.getLists(ADMIN_LIST ,"title")
 			def changePrivilagePath= browser.getListElements(CHANGE_PRIVILAGES)
 			for(int i=0;i<adminEmail.size();i++){
-				if(adminEmail[i].equalsIgnoreCase(formData[0])){
+				if(adminEmail[i].equalsIgnoreCase(KPCommonPage.userName)){
 					adminPrivilagesToBeChanged=changePrivilagePath[i]
 					break
 				}
