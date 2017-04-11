@@ -201,19 +201,21 @@ final class ManageAdminsPage extends WebPage {
 			}
 		}
 
-		def static clickOnChangePrivilages= { browser, formData->
+		def static clickOnChangePrivilages = { browser, formData->
+			println "3"
 			def adminPrivilagesToBeChanged
 			def adminEmail= browser.getLists(ADMIN_LIST ,"title")
 			def changePrivilagePath= browser.getListElements(CHANGE_PRIVILAGES)
 			for(int i=0;i<adminEmail.size();i++){
-				if(adminEmail[i].equalsIgnoreCase(KPCommonPage.userName)){
+				if(adminEmail[i].equalsIgnoreCase(KPCommonPage.adminEmailId[0])){
 					adminPrivilagesToBeChanged=changePrivilagePath[i]
 					break
 				}
 			}
 			if(adminPrivilagesToBeChanged != null){
+				browser.scrollToElement(adminPrivilagesToBeChanged)
 				browser.clickElement(adminPrivilagesToBeChanged)
-				browser.delay(4000)
+				browser.delay(2000)
 				return new SuccessOutcome()
 			} else {
 				return KPCommonPage.returnFailureOutcome(browser, "ChangePrivilagesLinkIssue", "Admin Change Privilages link cannot be clicked")

@@ -93,6 +93,7 @@ final class AddAdminPage extends WebPage {
 								emailToEnter = KPCommonPage.generateRandomEmailAddress(formData[i])
 								println "emailToEnter::::::::::::::::::::::"+emailToEnter
 								KPCommonPage.adminEmailId.add(emailToEnter)
+								println "Kp Common page saved email while adding admin::"+KPCommonPage.adminEmailId
 							}
 							browser.populateField(FIELDS[i], emailToEnter)
 						} else {

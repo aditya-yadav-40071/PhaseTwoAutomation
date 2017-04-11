@@ -4,10 +4,8 @@ import com.KPPhaseTwo.model.FailureOutcome
 import com.KPPhaseTwo.model.SuccessOutcome
 import com.KPPhaseTwo.web.WebForm
 import com.KPPhaseTwo.web.WebPage
-
 import com.KPPhaseTwo.tools.Browser
 import com.KPPhaseTwo.app.pages.KPCommonPage
-
 
 
 final class DashboardPage extends WebPage {
@@ -47,15 +45,19 @@ final class DashboardPage extends WebPage {
 
 		//Verify that added admin is displayed in the list
 		def static final logOut = { browser, formData ->
-			
+			println "1"
+			browser.scrollToElement(browser.getElement(Browser.XPATH, LEFT_MENU))
 			browser.delay(1500)
-			//browser.scrollToElement(browser.getElement(Browser.XPATH, LEFT_MENU))
-			browser.delay(1500)
+			println "6"
 			browser.click LEFT_MENU
+			println "2"
 			browser.delay(1500)
 			if(LOG_OUT !=null){
+				println "3"
 				browser.scrollToElement(browser.getElement(Browser.XPATH, LOG_OUT))
+				println "4"
 				browser.click LOG_OUT
+				println "5"
 				browser.delay(3000)
 				return new SuccessOutcome()
 			} else {

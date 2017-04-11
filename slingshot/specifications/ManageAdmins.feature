@@ -170,6 +170,7 @@ Feature: To test all the feature of manage admins page
     Then I SUBMIT the form
     Then I am ON manageAdmins page
 
+@Group(33)
   Scenario: To change the privilages of an Admin and verify that the privilages are changed changed accrodingly with DATA AddAdmins_Success
     Given I am ON dashboard page
     When I CLICK leftMenuButton link
@@ -251,7 +252,8 @@ Feature: To test all the feature of manage admins page
     And I VERIFY isAdminRemoved
     Then I am ON manageAdmins page
     And added admin has been removed from the admins list
-
+    
+@Group(Test)
   Scenario: Remove an admin from 'Manage Admins' page and Verify that user can not login to the application with DATA AddAdmin_Success
     Given I am ON dashboard page
     And I CLICK leftMenuButton
