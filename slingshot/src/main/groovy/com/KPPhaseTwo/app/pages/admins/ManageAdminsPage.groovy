@@ -101,7 +101,7 @@ final class ManageAdminsPage extends WebPage {
 					browser.scrollToElement(browser.getElement(Browser.XPATH, PAGINATION_NEXT))
 					browser.click PAGINATION_NEXT
 					browser.delay(1500)
-					xpathToRemoveAdmin = ManageAdminsForm.removeAdminXpath(browser, formData)
+					xpathToRemoveAdmin = this.removeAdminXpath(browser, formData) //ManageAdminsForm
 				}
 			}
 			if(xpathToRemoveAdmin != null){

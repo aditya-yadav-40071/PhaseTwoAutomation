@@ -236,6 +236,7 @@ Feature: To test all the feature of manage admins page
     Then I am ON manageAdmins page
     And newly created admin is displayed in the admins list
 
+@Group(1111)
   Scenario: To remove an added admin and verify that admin has been removed from the list  in 'Manage Admins' page with DATA AddAdmin_Success
     Given I am ON dashboard page
     And I CLICK leftMenuButton

@@ -1,17 +1,15 @@
-package com.KPPhaseTwo.app.pages.admins
+/*package com.KPPhaseTwo.app.pages.admins
 
 import com.KPPhaseTwo.model.FailureOutcome
 import com.KPPhaseTwo.model.SuccessOutcome
 import com.KPPhaseTwo.web.WebForm
 import com.KPPhaseTwo.web.WebPage
-
 import com.KPPhaseTwo.tools.Browser
-
 import com.KPPhaseTwo.app.pages.KPCommonPage
 
-/**
+*//**
  * Created by Aditya on 06/04/2017
- */
+ *//*
 
 final class PostJobPage extends WebPage {
 
@@ -116,9 +114,9 @@ final class PostJobPage extends WebPage {
 			def outcome = WebForm.checkFormFieldsData(formData, FIELDS)
 			if(outcome.isSuccess()){
 				for(int i = 0; i <= FIELDS.size()-1; i++){
-					/*if(FIELDS[i].equals(CATEGORY) && formData[i]!= ""){
+					if(FIELDS[i].equals(CATEGORY) && formData[i]!= ""){
 						KPCommonPage.jobCategory = formData[i]
-					}*/
+					}
 					if(FIELDS[i].equals(LOCATION) && formData[i]!= ""){
 						KPCommonPage.city = formData[i]
 						browser.scrollToElement(browser.getElement(Browser.XPATH, LOCATION))
@@ -146,11 +144,11 @@ final class PostJobPage extends WebPage {
 			return outcome
 		}
 		
-		/**
+		*//**
 		 * To submit the form
 		 * @param browser browser instance
 		 * @param data  array containing test data
-		 */
+		 *//*
 		def final submit(browser, data) {
 			
 			def actualValidationMsg = submitForm browser, FIELDS, ADD_BUTTON, data, ERROR_MESSAGE_FIELDS
@@ -170,3 +168,4 @@ final class PostJobPage extends WebPage {
 		}
 	}
 }
+*/
