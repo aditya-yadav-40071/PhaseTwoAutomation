@@ -64,7 +64,11 @@ class ClickAction {
 		xPathMapping.put("postJob", ".//a[@href='#/job/postJob']")
 		xPathMapping.put("viewAllPostings", ".//a[@href='#/jobs/postlist']");
 		xPathMapping.put("postJobBreadcrumb",".//*[@id='breadcrumbox']/a[4]");
-		xPathMapping.put("userEditProfile","html/body/div[1]/div[2]/div[2]/div/div[2]/a/h5");
+		
+		//User Edit Profile
+		xPathMapping.put("userEditProfile",".//a[@class='profile-edit-link display-inline-block']/h5");
+		xPathMapping.put("basicInfoArrowDown","//*[contains(text(), 'Basic Information*')]");
+		xPathMapping.put("basicInfoArrowUp","//*[contains(text(), 'Basic Information*')]");
 	}
 	
 	// Main function to take care of click actions

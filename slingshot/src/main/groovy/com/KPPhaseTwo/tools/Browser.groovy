@@ -298,12 +298,12 @@ public final class Browser {
 		return s
 	}
 
-	//To scroll to an element
+	//To scroll to an element giving the WebElement
 	public def scrollToElement(def element){
 		((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", element);
 	}
 
-	//To scroll to an element
+	//To scroll to an element giving the elements xpath 
 	public def scrollToElement2(def element){
 		WebElement ele = driver.findElement(By.xpath(element));
 		((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", ele);
@@ -389,6 +389,7 @@ public final class Browser {
 				}
 			}
 		}
+		println "::::::::::::::::Validation Messages::::"+validationMessages
 		return validationMessages
 	}
 

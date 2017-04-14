@@ -46,6 +46,8 @@ final class UserEditProfilePage extends WebPage {
 
 		private static final def SELECT_DOB         = ".//*[@id='ui-datepicker-div']/table/tbody/tr/td/a"
 
+		private static final def MARITAL_STATUS     = ".//select[@name='marital_new']"
+
 		private static final def ADD_LINE_1         = ".//input[@id='address1']"
 
 		private static final def ADD_LINE_2         = ".//input[@id='address2']"
@@ -53,6 +55,8 @@ final class UserEditProfilePage extends WebPage {
 		private static final def ADD_LINE_3         = ".//input[@id='address3']"
 
 		private static final def CITY               = ".//input[@id='city']"
+
+		private static final def CITY_AUTOSELCT     = ".//div[@class='pac-container pac-logo'][last()]/descendant::span[@class='pac-matched']"
 
 		private static final def PIN_CODE           = ".//input[@name='pincode']"
 
@@ -136,7 +140,7 @@ final class UserEditProfilePage extends WebPage {
 
 		private static final def UPDATE_BUTTON      = ".//div[@class='row mt20 mb20']/div/button"
 
-		private static final def FIELDS = [CAL_BTN]
+		private static final def FIELDS = [FIRST_NAME, MIDDLE_NAME, LAST_NAME, AGE, GENDER, CAL_BTN, MARITAL_STATUS, ADD_LINE_1, ADD_LINE_2, ADD_LINE_3, CITY, PIN_CODE, EMAIL_ID, MOBILE_NUM]
 
 		// the error fields.
 		private static final def FORM_ERROR = ".//span[@class='ng-binding ng-scope']"
@@ -145,17 +149,18 @@ final class UserEditProfilePage extends WebPage {
 
 		private static final def FIELD_ERROR_2 = ".//p[@class='error_message']"
 
-		private static final def ERROR_MESSAGE_FIELDS = [FORM_ERROR, FIELD_ERROR_1, FIELD_ERROR_2]
+		private static final def ERROR_MESSAGE_FIELDS = [FORM_ERROR, FIELD_ERROR_1]
 
 		//error message map (Key-Value Pair)
 		def static final PostJobPageErrorMessageMap = [
-
-			fname_req            :  ' First name is required. ',
+			fname_req            :  'First name is required.',
 			age_req              :  'Age is required.',
 			gender_req           :  'Select Gender.',
+			dob_req              :  'Date Of Birth is required.',
 			maritalstatus_req    :  'Select Marital Status.',
 			addline1_req         :  'Address Line 1 is required.',
 			city_req             :  'City Name is required.',
+			pin_req              :  'Pin code is required',
 			emailid_req          :  'Email ID is required.',
 			invalid_emailid      :  'Not a valid Email ID',
 			emailid_exists       :  'Email ID already exists',
@@ -178,7 +183,7 @@ final class UserEditProfilePage extends WebPage {
 			startgreater_endtime :  'Start Time Period cannot be greater than End Time Period',
 			startend_periodsame  :  'Start Time Period cannot be same as End Time Period',
 			invalidimg_file	     :  'Not a valid file please upload supported file ex: doc, docx, pdf, rtf, jpeg, png ,jpg',
-			invalid_size         :  'File size should less then 2 MB.']  //can'+"'"+'t
+			invalid_size         :  'File size should less then 2 MB.' ]
 
 		//To enter data
 		def static final populateFields = { browser, formData ->
@@ -187,20 +192,27 @@ final class UserEditProfilePage extends WebPage {
 			def outcome = WebForm.checkFormFieldsData(formData, FIELDS)
 			if(outcome.isSuccess()){
 				for(int i = 0; i <= FIELDS.size()-1; i++){
-					if(FIELDS[i].equals(CAL_BTN) && formData[i]!= ""){
-						def tagName = browser.getTagName(FIELDS[i])
+					def tagName = browser.getTagName(FIELDS[i])
+					if(FIELDS[i].equals(CAL_BTN) ){
+						if(formData[i] !=""){
+							WebForm.inputData(browser, FIELDS[i], tagName,formData[i])
+						} else {
+							browser.click FIELDS[i]
+						}
+					}else if(FIELDS[i].equals(CITY) ){
+						println "Tag Name of the field::"+tagName
+						browser.scrollToElement(browser.getElement(Browser.XPATH, FIELDS[i]))
 						WebForm.inputData(browser, FIELDS[i], tagName,formData[i])
-						/*		println "2"
-						 browser.click(Browser.XPATH,CAL_BTN)
-						 browser.delay(2000)
-						 println "3"
-						 KPCommonPage.datePicker(browser,SELECT_DOB,formData[i])
-						 println "4"*/
+						KPCommonPage.selectAutoComplete(browser, CITY_AUTOSELCT, formData[i].trim())
+					}else{
+						WebForm.inputData(browser, FIELDS[i], tagName,formData[i])
+						if(FIELDS[i].equals(MOBILE_NUM)&& formData[i]=="" ){
+							browser.pressTab(MOBILE_NUM)
+						}
 					}
-					/*def tagName = browser.getTagName(FIELDS[i])
-					 browser.scrollToElement2(FIELDS[i])
-					 WebForm.inputData(browser, FIELDS[i], tagName,formData[i])*/
 				}
+
+				outcome = new SuccessOutcome()
 			}
 			return outcome
 		}
@@ -221,10 +233,19 @@ final class UserEditProfilePage extends WebPage {
 
 		//override submitForm
 		def static submitForm = {browser, formFields, submitButton, data, errFields ->
-
-			browser.click submitButton // submit the form.
-			browser.scrollToElement2(JOB_TITLE)
+			println "Inside submit"
+			browser.scrollToElement(browser.getElement(Browser.XPATH, submitButton))
 			browser.delay(1000)
+			println "Inside submit after scoll 2"
+			browser.scrollToElement(browser.getElement(Browser.XPATH, FIRST_NAME))
+			println "Inside submit after scoll"
+			browser.delay(1000)
+			println " 1::: "+browser.checkEnabled(submitButton)
+			if(browser.checkEnabled(submitButton)){
+				browser.click submitButton // submit the form.
+				browser.delay(1000)
+			}
+			println "after submit"
 			browser.getValidationMessages errFields // get the validation messages from the current page.
 		}
 	}
