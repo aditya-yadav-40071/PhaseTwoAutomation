@@ -16,7 +16,7 @@ import com.KPPhaseTwo.app.pages.KPCommonPage
 final class LoginPage extends WebPage {
 
 	//Override	
-	def populateData = {browser, formKey, formData ->
+	def populateData = { browser, formKey, formData ->
 		new LoginForm().populateFields(browser, formData);
 	}	
 	

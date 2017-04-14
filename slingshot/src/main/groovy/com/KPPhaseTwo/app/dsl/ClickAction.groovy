@@ -64,6 +64,7 @@ class ClickAction {
 		xPathMapping.put("postJob", ".//a[@href='#/job/postJob']")
 		xPathMapping.put("viewAllPostings", ".//a[@href='#/jobs/postlist']");
 		xPathMapping.put("postJobBreadcrumb",".//*[@id='breadcrumbox']/a[4]");
+		xPathMapping.put("userEditProfile","html/body/div[1]/div[2]/div[2]/div/div[2]/a/h5");
 	}
 	
 	// Main function to take care of click actions

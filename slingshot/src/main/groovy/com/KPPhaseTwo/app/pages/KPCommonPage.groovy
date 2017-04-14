@@ -8,8 +8,10 @@ import java.util.TimeZone;
 import java.time.*
 import com.KPPhaseTwo.model.FailureOutcome
 import com.KPPhaseTwo.model.SuccessOutcome
-
-
+import org.openqa.selenium.By
+import org.openqa.selenium.WebElement
+import org.openqa.selenium.remote.RemoteWebElement;
+import com.KPPhaseTwo.tools.Browser
 /**
  * @author Samir
  * Date: 20/2/2017
@@ -20,8 +22,10 @@ class KPCommonPage {
 	private static def RADIOID = ".//*[@name='radioName'][@value='radioValue']"
 
 	private static def RADIO_BTN_XPATH1 = ".//input[@type='radio']"
-	
-	private static def SELECT_MONTH = ".//select[@class='ui-datepicker-month']"
+
+	private static def SELECT_MONTH = ".//*[@class='ui-datepicker-month']"
+
+	private static def SELECT_YEAR  = ".//*[@class='ui-datepicker-year']" 
 
 	//Registration
 	private static def city,industry
@@ -35,9 +39,9 @@ class KPCommonPage {
 	private static def adminPassword
 
 	private static def Privilage = []
-	
+
 	//private static def Job
-	
+
 	private static def adminEmailId = []
 
 	//To return Failure outcome
@@ -121,21 +125,49 @@ class KPCommonPage {
 		long number = (long) Math.floor(Math.random() * 9_000_000_000L) + 1_000_000_000L;
 		return number;
 	}
-	
+
 	//To Pick the date
-	/*public static def datePicker(def browser,def cal, def formDate){
+/*	public static def datePicker(def browser,def element, def formDate){
 		println "Inside KPCommon Page date picker"
-		browser.getElement(Browser.XPATH,cal).click()
+		//browser.getElement(Browser.XPATH,cal).click()
 		browser.delay(1000)
 		if(formDate.contains("/")){
 			def splittedDate= formDate.split ("/")
-			def monthValue = splittedDate[0]
-			def dayValue = splittedDate[1]
+			def monthValue = splittedDate[1]
+			def dayValue = Integer.parseInt(splittedDate[0])
 			def yearValue = splittedDate[2]
 			println "monthValue="+monthValue+"dayValue"+dayValue++"year="+yearValue
-			
-			
+			browser.selectDropdownValue(SELECT_YEAR,yearValue)
+			browser.delay(2000)
+			browser.selectDropdownValue(SELECT_MONTH,monthValue)
+			browser.delay(2000)
+			WebElement dateElement = browser.getElement(Browser.XPATH, element)
+			List <WebElement> dates= dateElement.findElements(By.tagName("a"));
+			System.out.println("Dates"+dates)
+			for(int i=0; i<dates.size();i++){
+				println "Value of Date from WebSite::"+dates.get(i).getText()
+				println"dayValue from sheet::"+dayValue
+				if((dates.get(i).getText()).equals(dayValue)){
+					dates.get(i).click();
+					browser.delay(3000);
+					System.out.println("The dates matched");
+					break;
+				}
+			}
 		}
 	}*/
+	
+	public static def datePicker(def browser,def formDate){
+		//2003-05-03
+		
+		def expectedDate = Integer.parseInt(formDate.split ("-").last()).toString()
+		def expectedMonth = browser.getMonthForInt(Integer.parseInt(formDate.split ("-")[1])-1)
+		def expectedYear = formDate.split ("-").first()
+		
+		browser.selectDropdownValue(SELECT_YEAR, expectedYear)
+		browser.selectDropdownValue(SELECT_MONTH, expectedMonth)
+		browser.selectDate(expectedDate)
+		browser.delay(1500)
+	}
 
 }

@@ -31,6 +31,7 @@ import org.openqa.selenium.remote.DesiredCapabilities
 import org.testng.Assert;
 import com.KPPhaseTwo.utils.*
 
+import java.text.DateFormatSymbols;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat
 import java.util.ArrayList;
@@ -405,6 +406,31 @@ public final class Browser {
 			takeScreenShot(appElement+"issue")
 			println "Element Not found in the page...."
 		}
+	}
+	
+	public def getMonthForInt(int num) {
+		String month = "wrong";
+		DateFormatSymbols dfs = new DateFormatSymbols();
+		String[] months = dfs.getMonths();
+		if (num >= 0 && num <= 11 ) {
+			month = months[num].substring(0, 3);
+		}
+		return month;
+	}
+	
+	public void selectDate(String value){
+		WebElement dateWidget = driver.findElement(By.id("ui-datepicker-div"));
+		List rows = dateWidget.findElements(By.tagName("tr"));
+		List columns = dateWidget.findElements(By.tagName("td"));
+		
+		for(WebElement cell : columns){
+			if(cell.getText().equals(value)){
+				cell.findElement(By.linkText(value)).click();
+				delay(1500);
+				break;
+			}
+		}
+		
 	}
 
 	/**

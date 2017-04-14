@@ -289,3 +289,19 @@ Scenario: To Verify all the failure scenarios while adding an admin in 'Manage A
     When I SUBMIT the form
     Then I am ON addAdmin page
     And error messages are displayed
+
+@Group(33333)   
+Scenario: To Verify all the failure scenarios while adding an admin in 'Manage Admins' page with DATA TestCal_Success
+    Given I am ON dashboard page
+    When I CLICK userEditProfile link
+    Then I am ON editProfile page
+    When I ENTER valid details
+    Then I am ON editProfile page
+    
+    
+    
+    
+    
+    
+    
+    

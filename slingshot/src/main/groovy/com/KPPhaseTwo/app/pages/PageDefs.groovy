@@ -16,7 +16,7 @@ class PageDefs {
 		pageDefEntries.add( new PageDefEntry("bifurcateUser", "Bifurcate User", null))
 		pageDefEntries.add( new PageDefEntry("companyRegistration", "Company Registration", "com.KPPhaseTwo.app.pages.user.CompanyRegistrationPage"))
 		pageDefEntries.add( new PageDefEntry("dashboard", "Dashboard", "com.KPPhaseTwo.app.pages.user.DashboardPage"))
-		pageDefEntries.add( new PageDefEntry("editProfile", "Edit Profile", null))
+//		pageDefEntries.add( new PageDefEntry("editProfile", "Edit Profile", null))
 		pageDefEntries.add( new PageDefEntry("individaulRegister", "Register User", "com.KPPhaseTwo.app.pages.user.IndividualRegisterPage"))
 		
 		//User Profile
@@ -48,6 +48,7 @@ class PageDefs {
 		//Post Job
 		pageDefEntries.add( new PageDefEntry("postJob","Job Post",null))
 		pageDefEntries.add( new PageDefEntry("jobPostList","Job Postings List","com.KPPhaseTwo.app.pages.admins.PostJobPage"))
+		pageDefEntries.add( new PageDefEntry("editProfile","Edit Profile","com.KPPhaseTwo.app.pages.user.UserEditProfilePage"))
 	}
 	
 	//Get Key for the current page
