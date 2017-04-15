@@ -140,8 +140,9 @@ final class UserEditProfilePage extends WebPage {
 
 		private static final def UPDATE_BUTTON      = ".//div[@class='row mt20 mb20']/div/button"
 
-		private static final def FIELDS = [FIRST_NAME, MIDDLE_NAME, LAST_NAME, AGE, GENDER, CAL_BTN, MARITAL_STATUS, ADD_LINE_1, ADD_LINE_2, ADD_LINE_3, CITY, PIN_CODE, EMAIL_ID, MOBILE_NUM]
+		//private static final def FIELDS = [FIRST_NAME, MIDDLE_NAME, LAST_NAME, AGE, GENDER, CAL_BTN, MARITAL_STATUS, ADD_LINE_1, ADD_LINE_2, ADD_LINE_3, CITY, PIN_CODE, EMAIL_ID, MOBILE_NUM]
 
+		private static final def FIELDS = [CAL_BTN]
 		// the error fields.
 		private static final def FORM_ERROR = ".//span[@class='ng-binding ng-scope']"
 
@@ -192,7 +193,7 @@ final class UserEditProfilePage extends WebPage {
 			def outcome = WebForm.checkFormFieldsData(formData, FIELDS)
 			if(outcome.isSuccess()){
 				for(int i = 0; i <= FIELDS.size()-1; i++){
-					def tagName = browser.getTagName(FIELDS[i])
+					/*def tagName = browser.getTagName(FIELDS[i])
 					if(FIELDS[i].equals(CAL_BTN) ){
 						if(formData[i] !=""){
 							WebForm.inputData(browser, FIELDS[i], tagName,formData[i])
@@ -210,8 +211,14 @@ final class UserEditProfilePage extends WebPage {
 							browser.pressTab(MOBILE_NUM)
 						}
 					}
+				}*/
+				
+				if(FIELDS[i].equals(CAL_BTN) ){
+					def tagName= browser.getTagName(FIELDS[i])
+					WebForm.inputData(browser, FIELDS[i], tagName,formData[i])
+				//KPCommonPage.datePicker(browser,formData[i])
 				}
-
+				}
 				outcome = new SuccessOutcome()
 			}
 			return outcome

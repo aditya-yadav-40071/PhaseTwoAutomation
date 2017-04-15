@@ -25,8 +25,9 @@ class KPCommonPage {
 
 	private static def SELECT_MONTH = ".//*[@class='ui-datepicker-month']"
 
-	private static def SELECT_YEAR  = ".//*[@class='ui-datepicker-year']" 
+	private static def SELECT_YEAR  = ".//*[@class='ui-datepicker-year']"
 
+	private static def DAY = ".//*[@id='ui-datepicker-div']/table/tbody/tr/td"
 	//Registration
 	private static def city,industry
 
@@ -127,47 +128,64 @@ class KPCommonPage {
 	}
 
 	//To Pick the date
-/*	public static def datePicker(def browser,def element, def formDate){
+	public static def datePicker(def browser, def formDate){
 		println "Inside KPCommon Page date picker"
 		//browser.getElement(Browser.XPATH,cal).click()
-		browser.delay(1000)
-		if(formDate.contains("/")){
-			def splittedDate= formDate.split ("/")
-			def monthValue = splittedDate[1]
-			def dayValue = Integer.parseInt(splittedDate[0])
-			def yearValue = splittedDate[2]
-			println "monthValue="+monthValue+"dayValue"+dayValue++"year="+yearValue
-			browser.selectDropdownValue(SELECT_YEAR,yearValue)
-			browser.delay(2000)
-			browser.selectDropdownValue(SELECT_MONTH,monthValue)
-			browser.delay(2000)
-			WebElement dateElement = browser.getElement(Browser.XPATH, element)
-			List <WebElement> dates= dateElement.findElements(By.tagName("a"));
-			System.out.println("Dates"+dates)
-			for(int i=0; i<dates.size();i++){
-				println "Value of Date from WebSite::"+dates.get(i).getText()
-				println"dayValue from sheet::"+dayValue
-				if((dates.get(i).getText()).equals(dayValue)){
-					dates.get(i).click();
-					browser.delay(3000);
-					System.out.println("The dates matched");
-					break;
-				}
-			}
-		}
-	}*/
-	
-	public static def datePicker(def browser,def formDate){
-		//2003-05-03
-		
-		def expectedDate = Integer.parseInt(formDate.split ("-").last()).toString()
-		def expectedMonth = browser.getMonthForInt(Integer.parseInt(formDate.split ("-")[1])-1)
-		def expectedYear = formDate.split ("-").first()
-		
-		browser.selectDropdownValue(SELECT_YEAR, expectedYear)
-		browser.selectDropdownValue(SELECT_MONTH, expectedMonth)
-		browser.selectDate(expectedDate)
-		browser.delay(1500)
+		//		browser.delay(1000)
+		//		if(formDate.contains("/")){
+		//			def dateValue= formDate.split ("/")
+		//			def monthValue = splittedDate[1]
+		//			def dayValue = Integer.parseInt(splittedDate[0])
+		//			def yearValue = splittedDate[2]
+		//			println "monthValue="+monthValue+"dayValue"+dayValue++"year="+yearValue
+		//			browser.selectDropdownValue(SELECT_YEAR,yearValue)
+		//			browser.delay(2000)
+		//			browser.selectDropdownValue(SELECT_MONTH,monthValue)
+		//			browser.delay(2000)
+		//			WebElement dateElement = browser.getElement(Browser.XPATH, element)
+		//			List <WebElement> dates= dateElement.findElements(By.tagName("a"));
+		//			System.out.println("Dates"+dates)
+		//			for(int i=0; i<dates.size();i++){
+		//				println "Value of Date from WebSite::"+dates.get(i).getText()
+		//				println"dayValue from sheet::"+dayValue
+		//				if((dates.get(i).getText()).equals(dayValue)){
+		//					dates.get(i).click();
+		//					browser.delay(3000);
+		//					System.out.println("The dates matched");
+		//					break;
+		//				}
+		//			}
+		//		}
+
+
+		def dateValue= formDate.split ("-")
+		def dayValue = Integer.parseInt(dateValue.last()).toString()
+		//					println "::::Value for Day::::"+dayValue
+		//					println "::::Type of Day value::::"+dayValue.getClass().getName()
+		def monthValue = Integer.parseInt(dateValue[1])-1
+		//					println "::::Value for Month::::"+monthValue
+		//					println "::::Type of month Value::::"+monthValue.getClass().getName()
+		def yearValue = dateValue.first()
+		//					println "::::Value for Year::::"+yearValue
+		//					println "::::Type of Year value::::"+yearValue.getClass().getName()
+		browser.selectDropdownValue(SELECT_YEAR,yearValue)
+		println "Year Selected"
+		def monthInString=  browser.getMonthForInt(monthValue)
+		println "::::Value for Month::::"+monthInString
+		//println "::::Type of month Value is it in string????::::"+monthInString.getClass().getName()
+		browser.selectDropdownValue(SELECT_MONTH,monthInString)
+		browser.selectDate(DAY,dayValue)
 	}
 
+	/*public static def datePicker(def browser,def formDate){
+	 //2003-05-03
+	 def expectedDate = Integer.parseInt(formDate.split ("-").last()).toString()
+	 def expectedMonth = browser.getMonthForInt(Integer.parseInt(formDate.split ("-")[1])-1)
+	 def expectedYear = formDate.split ("-").first()
+	 browser.selectDropdownValue(SELECT_YEAR, expectedYear)
+	 browser.selectDropdownValue(SELECT_MONTH, expectedMonth)
+	 browser.selectDate(expectedDate)
+	 browser.delay(1500)
+	 }
+	 */
 }

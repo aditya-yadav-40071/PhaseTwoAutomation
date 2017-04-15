@@ -98,6 +98,7 @@ abstract class WebForm {
 			case "text"	:
 				if(field.equals(".//*[@id='dobdatepicker']")){
 					browser.click(field)
+					browser.delay 2000
 					KPCommonPage.datePicker(browser, data)
 				} else{
 					browser.populateField(field, data)

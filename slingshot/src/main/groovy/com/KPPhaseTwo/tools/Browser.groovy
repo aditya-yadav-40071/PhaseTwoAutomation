@@ -240,7 +240,7 @@ public final class Browser {
 			}
 		}
 	}
-	
+
 	public void clickMdCheckBox(String element, String data){
 		String value
 		WebElement Element = getElement(XPATH, element)
@@ -255,7 +255,7 @@ public final class Browser {
 			}
 		}
 	}
-	
+
 	/**
 	 * To Get the selected value from the dropdown
 	 * @param browser browser instance
@@ -303,7 +303,7 @@ public final class Browser {
 		((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", element);
 	}
 
-	//To scroll to an element giving the elements xpath 
+	//To scroll to an element giving the elements xpath
 	public def scrollToElement2(def element){
 		WebElement ele = driver.findElement(By.xpath(element));
 		((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", ele);
@@ -408,30 +408,40 @@ public final class Browser {
 			println "Element Not found in the page...."
 		}
 	}
-	
+
 	public def getMonthForInt(int num) {
 		String month = "wrong";
 		DateFormatSymbols dfs = new DateFormatSymbols();
 		String[] months = dfs.getMonths();
+		println "months from method::::"+months
 		if (num >= 0 && num <= 11 ) {
 			month = months[num].substring(0, 3);
 		}
 		return month;
 	}
-	
-	public void selectDate(String value){
-		WebElement dateWidget = driver.findElement(By.id("ui-datepicker-div"));
-		List rows = dateWidget.findElements(By.tagName("tr"));
-		List columns = dateWidget.findElements(By.tagName("td"));
-		
-		for(WebElement cell : columns){
-			if(cell.getText().equals(value)){
-				cell.findElement(By.linkText(value)).click();
-				delay(1500);
+
+	public void selectDate(def element,def value){
+		/*WebElement dateWidget = driver.findElement(By.id("ui-datepicker-div"));
+		 List rows = dateWidget.findElements(By.tagName("tr"));
+		 List columns = dateWidget.findElements(By.tagName("td"));
+		 for(WebElement cell : columns){
+		 if(cell.getText().equals(value)){
+		 cell.findElement(By.linkText(value)).click();
+		 delay(1500);
+		 break;
+		 }
+		 }*/
+
+		WebElement dateElement = getElement(XPATH, element)
+		List <WebElement> dates= dateElement.findElements(By.tagName("a"));
+		System.out.println("Dates"+dates)
+		for(int i=0; i<dates.size();i++){
+			if((dates.get(i).getText()).equalsIgnoreCase(value)){
+				dates.get(i).click();
+				delay(2000);
 				break;
 			}
 		}
-		
 	}
 
 	/**
@@ -440,6 +450,7 @@ public final class Browser {
 	 * @param String
 	 */
 	public void selectDropdownValue(String element, String value ){
+		println "value:::"+value.getClass().getName()
 
 		boolean flag = false
 		try{
@@ -448,6 +459,7 @@ public final class Browser {
 			//delay(1000)
 			for(int i=0; i<= lists.size()-1;i++){
 				String dropdownValue = lists.get(i).getText().trim()
+				println "dropdown:::"+dropdownValue.getClass().getName()
 				if(value.equals(dropdownValue)){
 					flag = true
 					break
@@ -547,6 +559,17 @@ public final class Browser {
 		}
 		list
 	}
+
+	public def getMonthInt(){
+		println "Entered to get month"
+		Date date= new Date();
+		Calendar cal = Calendar.getInstance();
+		cal.setTime(date);
+		int month = cal.get(Calendar.MONTH)+2;
+		println "Month -1::::"+month
+		return month
+	}
+
 
 	//To get the attribute values
 	public def getLists(String element, String value){
